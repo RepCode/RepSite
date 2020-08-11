@@ -17,6 +17,7 @@
           :key="`foot-print-${index}`"
           :style="navItemStyleObject(index)"
           class="nav-item foot-print"
+          v-show="route.active"
         >
           <span>{{ route.displayName }}</span>
         </div>
@@ -24,7 +25,7 @@
           <div
             :style="navItemStyleObject(index)"
             class="nav-item"
-            :class="{ 'clicked-nav-item': routes[index].active }"
+            :class="{ 'clicked-nav-item': route.active }"
             @click="setActive(index)"
           >
             <span>{{ route.displayName }}</span>
@@ -141,16 +142,20 @@ export default class NavBar extends Vue {
     font-size: calc(22px + 1vw);
     color: #6567ff;
     transition: margin-left 300ms cubic-bezier(0, 1.01, 0.68, 0.72);
+    &:hover {
+      animation: item-hover 200ms ease-in 1;
+    }
     &.foot-print {
       color: #b3b4f5;
-      opacity: 0.8;
       cursor: default;
+      animation: none;
     }
     &.clicked-nav-item {
       color: #3923cc;
       margin-left: 15px !important;
       font-weight: 600;
       cursor: default;
+      animation: none;
       span {
         text-align: left;
       }
@@ -168,6 +173,18 @@ export default class NavBar extends Vue {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes item-hover {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-7%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 </style>
