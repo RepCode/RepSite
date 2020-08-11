@@ -34,4 +34,8 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+
+.page-content {
+  margin-top: 100px;
+}
 </style>

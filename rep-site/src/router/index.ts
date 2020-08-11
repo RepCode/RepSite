@@ -12,14 +12,18 @@ const routes: Array<RouteConfig> = [
     meta: { title: 'RepSite' },
   },
   {
-    path: '/about',
-    name: 'About',
-    meta: { title: 'RepSite | About' },
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: '/code',
+    name: 'Code',
+    meta: { title: 'RepCode' },
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
+      import(/* webpackChunkName: "repcode" */ '../views/Code.vue'),
+  },
+  {
+    path: '/pics',
+    name: 'Pics',
+    meta: { title: 'RepPics' },
+    component: () =>
+      import(/* webpackChunkName: "reppics" */ '../views/Pics.vue'),
   },
 ];
 
