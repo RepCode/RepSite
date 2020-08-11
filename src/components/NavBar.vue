@@ -84,7 +84,6 @@ export default class NavBar extends Vue {
     this.selectedIndex = index;
   }
   public navItemStyleObject(index: number) {
-    console.log('asd');
     const position = this.routes.length - index;
     return {
       'margin-left': `calc(100% - ${position} *
@@ -148,6 +147,7 @@ export default class NavBar extends Vue {
     &.clicked-nav-item {
       color: #3923cc;
       margin-left: 15px !important;
+      font-weight: 600;
       cursor: default;
       span {
         text-align: left;
