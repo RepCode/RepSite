@@ -121,6 +121,7 @@ export default class NavBar extends Vue {
   .logo-cursor {
     margin-left: 15px;
     width: 2px;
+    height: 80%;
     object-fit: contain;
     animation: blink 1s linear infinite alternate;
   }
