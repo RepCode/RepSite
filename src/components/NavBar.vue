@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Watch, Vue } from 'vue-property-decorator';
 
 export class NavItem {
   displayName = '';
@@ -58,11 +58,13 @@ export default class NavBar extends Vue {
       path: '/pics',
     },
   ];
-  created() {
+  @Watch('$route')
+  routeChange() {
     const index = this.routes.findIndex(x => this.$route.path === x.path);
-    if (index !== -1) {
+    if (index !== -1 && !this.routes[index].active) {
       this.selectedIndex = index;
       this.routes[index].active = true;
+      Vue.set(this.routes, index, this.routes[index]);
     }
   }
   public navigateHome() {
