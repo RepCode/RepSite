@@ -13,6 +13,13 @@ export default {
   components: {
     NavBar,
   },
+  mounted() {
+    const path = localStorage.getItem('path');
+    if (path) {
+      localStorage.removeItem('path');
+      this.$router.push({ path: path });
+    }
+  },
   watch: {
     $route(to) {
       document.title = to.meta.title || siteName;
