@@ -17,7 +17,7 @@
           :key="`foot-print-${index}`"
           :style="navItemStyleObject(index)"
           class="nav-item foot-print"
-          v-show="route.active"
+          :class="{ 'foot-print-hidden': !route.active }"
         >
           <span>{{ route.displayName }}</span>
         </div>
@@ -97,6 +97,8 @@ export default class NavBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
+$click-animation-duration: 300ms;
+
 .nav-bar {
   position: fixed;
   top: 0;
@@ -114,12 +116,11 @@ export default class NavBar extends Vue {
   padding: 1% 0;
   align-items: center;
   .logo-letters {
-    width: 80%;
+    width: 70%;
     object-fit: contain;
-    cursor: pointer;
   }
   .logo-cursor {
-    margin-left: 15px;
+    margin-left: 8px;
     width: 2px;
     height: 80%;
     object-fit: contain;
@@ -142,7 +143,8 @@ export default class NavBar extends Vue {
     align-items: center;
     font-size: calc(22px + 1vw);
     color: #6567ff;
-    transition: margin-left 300ms cubic-bezier(0, 1.01, 0.68, 0.72);
+    transition: margin-left $click-animation-duration
+      cubic-bezier(0, 1.01, 0.68, 0.72);
     &:hover {
       animation: item-hover 200ms ease-in 1;
     }
@@ -150,6 +152,11 @@ export default class NavBar extends Vue {
       color: #b3b4f5;
       cursor: default;
       animation: none;
+
+      &.foot-print-hidden {
+        opacity: 0;
+        transition: opacity 0ms linear $click-animation-duration;
+      }
     }
     &.clicked-nav-item {
       color: #3923cc;
