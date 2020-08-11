@@ -136,30 +136,29 @@ $click-animation-duration: 300ms;
     position: absolute;
     height: 100%;
     width: calc(50px + 2vw);
-    color: white;
     cursor: pointer;
     float: left;
     display: flex;
     align-items: center;
     font-size: calc(22px + 1vw);
-    color: #6567ff;
+    color: #9598fc;
     transition: margin-left $click-animation-duration
       cubic-bezier(0, 1.01, 0.68, 0.72);
     &:hover {
       animation: item-hover 200ms ease-in 1;
     }
     &.foot-print {
-      color: #b3b4f5;
+      color: #babbdb;
       cursor: default;
       animation: none;
-
+      opacity: 0.5;
       &.foot-print-hidden {
         opacity: 0;
         transition: opacity 0ms linear $click-animation-duration;
       }
     }
     &.clicked-nav-item {
-      color: #3923cc;
+      color: #5053cc;
       margin-left: 15px !important;
       font-weight: 600;
       cursor: default;
