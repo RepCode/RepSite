@@ -38,30 +38,41 @@ export default class NavBar extends Vue {
   @Watch('$route')
   routeChange() {
     const index = this.routes.findIndex(x => this.$route.path === x.path);
+    if (this.selectedIndex !== null) {
+      this.clearSelected();
+    }
     if (index !== -1 && !this.routes[index].active) {
-      this.selectedIndex = index;
-      this.routes[index].active = true;
-      Vue.set(this.routes, index, this.routes[index]);
+      this.setSelected(index);
     }
   }
   public navigateHome() {
     if (this.selectedIndex !== null) {
-      const index = this.selectedIndex as number;
-      this.routes[index].active = false;
-      Vue.set(this.routes, index, this.routes[index]);
-      this.selectedIndex = null;
+      this.clearSelected();
     }
   }
   public routeClick(index: number) {
-    if (this.selectedIndex !== null) {
-      const oldIndex = this.selectedIndex as number;
-      this.routes[oldIndex].active = false;
-      Vue.set(this.routes, oldIndex, this.routes[oldIndex]);
+    if (this.selectedIndex === index) {
+      return;
     }
+    if (this.selectedIndex !== null) {
+      this.clearSelected();
+    }
+    this.setSelected(index);
+    this.$router.push({ path: this.getCurrent().path });
+  }
+  private clearSelected() {
+    const index = this.selectedIndex as number;
+    this.routes[index].active = false;
+    Vue.set(this.routes, index, this.routes[index]);
+    this.selectedIndex = null;
+  }
+  private setSelected(index: number) {
     this.routes[index].active = true;
     Vue.set(this.routes, index, this.routes[index]);
     this.selectedIndex = index;
-    this.$router.push({ path: this.routes[index].path });
+  }
+  private getCurrent(): NavItem {
+    return this.routes[this.selectedIndex as number];
   }
 }
 </script>
