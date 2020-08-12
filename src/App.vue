@@ -1,15 +1,29 @@
 <template>
   <div id="app">
-    <NavBar />
+    <NavBar :routes="navBarRoutes" />
     <router-view />
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar';
+import NavBar from './components/nav-bar/NavBar';
 
 const siteName = 'Repsite';
 export default {
+  data() {
+    return {
+      navBarRoutes: [
+        {
+          displayName: 'Code',
+          path: '/code',
+        },
+        {
+          displayName: 'Pics',
+          path: '/pics',
+        },
+      ],
+    };
+  },
   components: {
     NavBar,
   },
@@ -43,6 +57,7 @@ body {
 }
 
 .page-content {
-  margin-top: 100px;
+  width: 80%;
+  margin: 100px auto;
 }
 </style>
