@@ -49,7 +49,7 @@ export default class NavBarItems extends Vue {
     const style = {
       width: this.navItemWidth,
       'margin-left': `calc(100% - ${position} *
-        ${this.navItemWidth} - ${position * 3}%)`,
+        ${this.navItemWidth} - ${position} * 3%)`,
     };
     this.routes[index].styleObject = style;
     return style;
@@ -84,7 +84,7 @@ $click-animation-duration: 300ms;
       }
       &.clicked-nav-item {
         color: #5053cc;
-        margin-left: 15px !important;
+        margin-left: 0 !important;
         font-weight: 600;
         animation: none;
         span {

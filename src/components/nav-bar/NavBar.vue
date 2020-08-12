@@ -1,7 +1,10 @@
 <template>
   <div class="nav-bar">
-    <div class="logo">
-      <router-link :to="'/'">
+    <div class="logo-section">
+      <router-link :to="'/'" @click="navigateHome">
+        <slot></slot>
+      </router-link>
+      <!-- <router-link :to="'/'">
         <img
           class="logo-letters"
           alt="Rep Logo"
@@ -13,7 +16,7 @@
         class="logo-cursor"
         alt="Rep Logo"
         src="../../assets/logo-cursor.png"
-      />
+      /> -->
     </div>
     <div class="nav-items-section">
       <NavBarItems
@@ -88,38 +91,16 @@ $click-animation-duration: 300ms;
   background: rgba(0, 0, 0, 0.8);
   display: flex;
 }
+
+.logo-section {
+  margin-left: 3%;
+  cursor: pointer;
+  flex: 8;
+}
+
 .nav-items-section {
   position: relative;
   width: 100%;
-  margin-right: 3%;
-}
-.logo {
-  left: 0;
-  min-width: 80px;
-  width: 8%;
-  margin-left: 3%;
-  display: flex;
-  padding: 1% 0;
-  align-items: center;
-  .logo-letters {
-    width: 70%;
-    object-fit: contain;
-  }
-  .logo-cursor {
-    margin-left: 8px;
-    width: 2px;
-    height: 80%;
-    object-fit: contain;
-    animation: blink 1s linear infinite alternate;
-  }
-}
-
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  flex: 100;
 }
 </style>

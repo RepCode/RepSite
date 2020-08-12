@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <NavBar :routes="navBarRoutes" />
+    <NavBar :routes="navBarRoutes">
+      <Logo />
+    </NavBar>
     <router-view />
   </div>
 </template>
 
 <script>
 import NavBar from './components/nav-bar/NavBar';
+import Logo from './components/Logo.vue';
 
 const siteName = 'Repsite';
 export default {
@@ -26,6 +29,7 @@ export default {
   },
   components: {
     NavBar,
+    Logo,
   },
   mounted() {
     const path = localStorage.getItem('path');
