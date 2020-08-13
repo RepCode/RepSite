@@ -4,19 +4,6 @@
       <router-link :to="'/'" @click="navigateHome">
         <slot></slot>
       </router-link>
-      <!-- <router-link :to="'/'">
-        <img
-          class="logo-letters"
-          alt="Rep Logo"
-          src="../../assets/logo-letters.png"
-          @click="navigateHome"
-        />
-      </router-link>
-      <img
-        class="logo-cursor"
-        alt="Rep Logo"
-        src="../../assets/logo-cursor.png"
-      /> -->
     </div>
     <div class="nav-items-section">
       <NavBarItems

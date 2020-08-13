@@ -1,6 +1,6 @@
 <template>
   <div class="page-content">
-    Pics Component Working!
+    Oops, still working on this one.
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="page-content">
-    Code Component Working!
+    Oops, still working on this one.
   </div>
 </template>
 

@@ -1,35 +1,33 @@
 <template>
   <div id="app">
-    <NavBar :routes="navBarRoutes">
+    <NavBar :routes="navbarRoutes">
       <Logo />
     </NavBar>
     <router-view />
+    <Footer :links="footerLinks" />
   </div>
 </template>
 
 <script>
 import NavBar from './components/nav-bar/NavBar';
 import Logo from './components/Logo.vue';
+import Footer from './components/footer/Footer.vue';
+import InfoModule from './data/info';
 
 const siteName = 'Repsite';
 export default {
-  data() {
-    return {
-      navBarRoutes: [
-        {
-          displayName: 'Code',
-          path: '/code',
-        },
-        {
-          displayName: 'Pics',
-          path: '/pics',
-        },
-      ],
-    };
-  },
   components: {
     NavBar,
     Logo,
+    Footer,
+  },
+  computed: {
+    navbarRoutes() {
+      return InfoModule.navbarRoutes;
+    },
+    footerLinks() {
+      return InfoModule.footerLinks;
+    },
   },
   mounted() {
     const path = localStorage.getItem('path');
@@ -47,6 +45,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/__shared.scss';
+
 body {
   background: black;
   margin: 0;
@@ -57,11 +57,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $white-color;
+  font-size: 16px;
+  @include tablet {
+    font-size: 18px;
+  }
 }
 
 .page-content {
-  width: 80%;
-  margin: 100px auto;
+  width: 90%;
+  margin: 120px auto;
+  @include tablet {
+    width: 80%;
+    margin: 180px auto;
+  }
+  @include desktop {
+    margin: 200px auto;
+  }
+  @include large {
+    width: 65%;
+    margin: 220px auto;
+  }
 }
 </style>
