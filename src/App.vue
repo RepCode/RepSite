@@ -21,13 +21,11 @@ export default {
     Logo,
     Footer,
   },
-  computed: {
-    navbarRoutes() {
-      return InfoModule.navbarRoutes;
-    },
-    footerLinks() {
-      return InfoModule.footerLinks;
-    },
+  data() {
+    return {
+      navbarRoutes: InfoModule.navbarRoutes,
+      footerLinks: InfoModule.footerLinks,
+    };
   },
   mounted() {
     const path = localStorage.getItem('path');
