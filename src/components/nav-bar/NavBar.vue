@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar">
+  <nav class="nav-bar">
     <div class="logo-section">
       <router-link :to="'/'" @click="navigateHome">
         <slot></slot>
@@ -12,7 +12,7 @@
         :navItemWidth="'calc(50px + 2vw)'"
       />
     </div>
-  </div>
+  </nav>
 </template>
 
 <script lang="ts">

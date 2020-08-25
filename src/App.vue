@@ -64,7 +64,9 @@ body {
 
 .page-content {
   width: 90%;
-  margin: 120px auto;
+  margin: 120px auto 70px auto;
+  text-align: justify;
+  min-height: 360px;
   @include tablet {
     width: 80%;
     margin: 180px auto;

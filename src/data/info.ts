@@ -31,4 +31,5 @@ export default {
       path: '/pics',
     },
   ],
+  lomographyLink: '//lomography.com/homes/reppics',
 };

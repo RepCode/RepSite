@@ -31,7 +31,6 @@ export default class Home extends Vue {}
 @import '@/__shared.scss';
 
 .presentation {
-  text-align: justify;
   @include tablet {
     width: 75%;
   }
